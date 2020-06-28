@@ -1,0 +1,7 @@
+name: RedditRoyalty
+version: ${project.version}
+main: me.kingtux.redditroyalty.RedditRoyalty
+api-version: 1.13
+authors: [KingTux]
+description: The Reddit Royalty Core plugin
+website: kingtux.me
