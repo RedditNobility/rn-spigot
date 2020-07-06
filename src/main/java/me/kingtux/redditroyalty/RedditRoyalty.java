@@ -53,6 +53,7 @@ public final class RedditRoyalty extends JavaPlugin {
         getServer().addRecipe(createSpawnerRecipe(EntityType.DROWNED, Material.NAUTILUS_SHELL));
         getServer().addRecipe(createSpawnerRecipe(EntityType.SLIME, Material.SLIME_BALL));
         getServer().addRecipe(createSpawnerRecipe(EntityType.WITCH, Material.GLOWSTONE_DUST));
+        getServer().addRecipe(createSpawnerRecipe(EntityType.DROWNED, Material.HEART_OF_THE_SEA));
 
     }
 
