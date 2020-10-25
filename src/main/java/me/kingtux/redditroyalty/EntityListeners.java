@@ -32,14 +32,5 @@ public class EntityListeners implements Listener {
         }
     }
 
-    @EventHandler
-    private void life(EntitySpawnEvent e) {
-        if (e.getEntityType() == EntityType.BAT) {
-            e.setCancelled(true);
-            if (e.getEntity() instanceof Damageable) {
-                ((Damageable) e.getEntity()).damage(100);
-            }
 
-        }
-    }
 }
