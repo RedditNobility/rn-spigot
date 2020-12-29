@@ -9,7 +9,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class BlockListeners implements Listener {
     private RedditRoyalty redditRoyalty;
@@ -40,6 +39,7 @@ public class BlockListeners implements Listener {
             CreatureSpawner cs = (CreatureSpawner) bsm.getBlockState();
             EntityType type = cs.getSpawnedType();
             CreatureSpawner s = (CreatureSpawner) event.getBlock().getState();
+            s.setRequiredPlayerRange(0);
             s.setSpawnedType(type);
             s.update();
         }

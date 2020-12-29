@@ -1,7 +1,6 @@
 package me.kingtux.redditroyalty;
 
 import dev.nitrocommand.bukkit.BukkitCommandCore;
-
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.CreatureSpawner;
@@ -11,10 +10,6 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import javax.security.auth.login.LoginException;
-import java.io.File;
-import java.util.Properties;
 
 public final class RedditRoyalty extends JavaPlugin {
     private BukkitCommandCore bukkitCommandCore;
@@ -73,7 +68,7 @@ public final class RedditRoyalty extends JavaPlugin {
         spawner.setItemMeta(itemMeta);
         BlockStateMeta bsm = (BlockStateMeta) spawner.getItemMeta();
         CreatureSpawner cs = (CreatureSpawner) bsm.getBlockState();
-
+        cs.setRequiredPlayerRange(0);
         cs.setSpawnedType(type);
         bsm.setBlockState(cs);
         spawner.setItemMeta(bsm);
