@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.UUID;
 
-public class SkullThing {
+public class SkullUtils {
     public static ItemStack getCustomTextureHead(String base64, String uuid) {
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) head.getItemMeta();

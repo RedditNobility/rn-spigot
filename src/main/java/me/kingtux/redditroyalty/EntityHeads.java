@@ -71,7 +71,7 @@ public enum EntityHeads {
         if (head != null) {
             itemStack = new ItemStack(head);
         } else {
-            itemStack = SkullThing.getCustomTextureHead(base64, uuid);
+            itemStack = SkullUtils.getCustomTextureHead(base64, uuid);
         }
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(entity.getKey().getKey() + " Skull");
