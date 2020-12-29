@@ -44,11 +44,12 @@ public final class RedditRoyalty extends JavaPlugin {
         getServer().addRecipe(createSpawnerRecipe(EntityType.SHEEP, Material.WHITE_WOOL));
         getServer().addRecipe(createSpawnerRecipe(EntityType.COW, Material.BEEF));
         getServer().addRecipe(createSpawnerRecipe(EntityType.MUSHROOM_COW, Material.SUSPICIOUS_STEW));
-        getServer().addRecipe(createSpawnerRecipe(EntityType.PIG_ZOMBIE, Material.GOLDEN_SWORD));
+
+        //TODO bring back our friend!
+        getServer().addRecipe(createSpawnerRecipe(EntityType.ZOMBIFIED_PIGLIN, Material.GOLDEN_SWORD));
         getServer().addRecipe(createSpawnerRecipe(EntityType.WITHER_SKELETON, Material.WITHER_SKELETON_SKULL));
         getServer().addRecipe(createSpawnerRecipe(EntityType.VILLAGER, Material.TOTEM_OF_UNDYING));
         getServer().addRecipe(createSpawnerRecipe(EntityType.ZOMBIE_VILLAGER, Material.EMERALD));
-        getServer().addRecipe(createSpawnerRecipe(EntityType.DROWNED, Material.NAUTILUS_SHELL));
         getServer().addRecipe(createSpawnerRecipe(EntityType.SLIME, Material.SLIME_BALL));
         getServer().addRecipe(createSpawnerRecipe(EntityType.WITCH, Material.GLOWSTONE_DUST));
         getServer().addRecipe(createSpawnerRecipe(EntityType.DROWNED, Material.HEART_OF_THE_SEA));
