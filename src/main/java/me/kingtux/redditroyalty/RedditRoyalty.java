@@ -68,7 +68,6 @@ public final class RedditRoyalty extends JavaPlugin {
         spawner.setItemMeta(itemMeta);
         BlockStateMeta bsm = (BlockStateMeta) spawner.getItemMeta();
         CreatureSpawner cs = (CreatureSpawner) bsm.getBlockState();
-        cs.setRequiredPlayerRange(0);
         cs.setSpawnedType(type);
         bsm.setBlockState(cs);
         spawner.setItemMeta(bsm);

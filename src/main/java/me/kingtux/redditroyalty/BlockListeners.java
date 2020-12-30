@@ -39,7 +39,8 @@ public class BlockListeners implements Listener {
             CreatureSpawner cs = (CreatureSpawner) bsm.getBlockState();
             EntityType type = cs.getSpawnedType();
             CreatureSpawner s = (CreatureSpawner) event.getBlock().getState();
-            s.setRequiredPlayerRange(0);
+            s.setRequiredPlayerRange(-1);
+
             s.setSpawnedType(type);
             s.update();
         }
