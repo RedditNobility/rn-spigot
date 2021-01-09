@@ -27,7 +27,7 @@ public class BlockListeners implements Listener {
             event.getBlock().getLocation().getWorld().
                     dropItem(event.getBlock().getLocation().add(0.5, 0, 0.5), RedditRoyalty.createSpawner(spawnedEntity));
 
-
+            event.setExpToDrop(0);
         }
     }
 
