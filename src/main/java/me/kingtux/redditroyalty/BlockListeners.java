@@ -31,18 +31,4 @@ public class BlockListeners implements Listener {
         }
     }
 
-    @EventHandler
-    public void blockPlace(BlockPlaceEvent event) {
-        if (event.getBlock().getType() == Material.SPAWNER) {
-            ItemStack spawner = event.getItemInHand();
-            BlockStateMeta bsm = (BlockStateMeta) spawner.getItemMeta();
-            CreatureSpawner cs = (CreatureSpawner) bsm.getBlockState();
-            EntityType type = cs.getSpawnedType();
-            CreatureSpawner s = (CreatureSpawner) event.getBlock().getState();
-            s.setRequiredPlayerRange(-1);
-
-            s.setSpawnedType(type);
-            s.update();
-        }
-    }
 }
