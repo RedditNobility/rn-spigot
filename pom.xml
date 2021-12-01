@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.kingtux</groupId>
-    <artifactId>reddit-royalty</artifactId>
+    <groupId>org.redditnobility</groupId>
+    <artifactId>rn-spigot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -73,6 +73,10 @@
             <id>kingtux-repo</id>
             <url>https://repo.kingtux.me/storages/maven/kingtux-repo</url>
         </repository>
+        <repository>
+            <id>tuxserver</id>
+            <url>https://repo.kingtux.me/storages/maven/tuxserver</url>
+        </repository>
 
     </repositories>
 
@@ -80,7 +84,7 @@
         <dependency>
             <groupId>me.kingtux.tuxserver</groupId>
             <artifactId>tuxserver</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
