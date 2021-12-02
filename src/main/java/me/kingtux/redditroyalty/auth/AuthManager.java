@@ -48,7 +48,6 @@ public class AuthManager implements Listener {
     public RedditRoyalty getRedditRoyalty() {
         return redditRoyalty;
     }
-
     public Dao<AuthModel, Long> getAuthDao() {
         return authDao;
     }

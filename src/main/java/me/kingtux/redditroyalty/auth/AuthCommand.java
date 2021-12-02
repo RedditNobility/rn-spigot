@@ -35,9 +35,9 @@ public class AuthCommand {
 
     }
 
-    @SubCommand(format = "classicRoyal {mcUsername}")
+    @SubCommand(format = "classicRoyal {mcUsername} {redditUsername}")
     @BukkitPermission("rn.admin")
-    public void addClassicRoyal(CommandSender sender, @CommandArgument("mcUsername") String mcUsername) {
+    public void addClassicRoyal(CommandSender sender, @CommandArgument("mcUsername") String mcUsername, @CommandArgument("redditUsername") String redditUsername) {
 
     }
 }
