@@ -1,2 +1,3 @@
 bot:
   token: "NjgxMTc4NjQyNzA1MTU0MDY5.XlKrEw.NboKisI_XSUbOmgkIn2-9JP652k"
+require-auth: true

@@ -1,6 +1,10 @@
 package me.kingtux.redditroyalty;
 
 import dev.nitrocommand.bukkit.BukkitCommandCore;
+import me.kingtux.redditroyalty.auth.AuthCommand;
+import me.kingtux.redditroyalty.auth.AuthManager;
+import me.kingtux.tuxcore.TuxCore;
+import me.kingtux.tuxorm.TOConnection;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.CreatureSpawner;
@@ -9,10 +13,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RedditRoyalty extends JavaPlugin {
     private BukkitCommandCore bukkitCommandCore;
+    private TuxCore tuxCore;
 
     @Override
     public void onEnable() {
@@ -23,7 +29,16 @@ public final class RedditRoyalty extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EntityListeners(), this);
         loadSpawners();
         bukkitCommandCore = new BukkitCommandCore(this);
+        tuxCore = (TuxCore) getServer().getPluginManager().getPlugin("TuxCore");
+        if (getConfig().getBoolean("require-auth", true)) {
+            var auth = new AuthManager(this);
+            bukkitCommandCore.registerCommand(new AuthCommand(this, auth));
+            getServer().getPluginManager().registerEvents(auth, this);
+        }
+    }
 
+    public TOConnection getConnection() {
+        return tuxCore.getCommonConnection();
     }
 
     private void loadSpawners() {
@@ -50,8 +65,7 @@ public final class RedditRoyalty extends JavaPlugin {
     }
 
     public ShapedRecipe createSpawnerRecipe(EntityType type, Material core) {
-        ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(this, type.getKey().getKey().toLowerCase() + "_spawner")
-                , createSpawner(type));
+        ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(this, type.getKey().getKey().toLowerCase() + "_spawner"), createSpawner(type));
         recipe.shape("III", "ISI", "III");
         recipe.setIngredient('I', Material.IRON_BLOCK);
         recipe.setIngredient('S', core);
