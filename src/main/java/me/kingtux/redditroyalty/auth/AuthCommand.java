@@ -7,6 +7,7 @@ import dev.nitrocommand.core.annotations.NitroCommand;
 import dev.nitrocommand.core.annotations.SubCommand;
 import me.kingtux.redditroyalty.RedditRoyalty;
 import me.kingtux.tuxcore.TuxCore;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -37,8 +38,10 @@ public class AuthCommand {
         boolean valid = authManager.nobilityClient.isValid(redditUsername);
         if (!valid) {
             sender.sendMessage("Invalid Reddit Username. If you believe this is a mistake please contact KingTux#0042");
+            return;
         }
         authManager.getAuthDao().create(new AuthModel(sender.getUniqueId().toString(), AuthStatus.Nobility, redditUsername));
+        sender.sendMessage(ChatColor.GREEN + "You have successfully been validated");
     }
 
     @SubCommand(format = "friend {mcUsername}")
@@ -58,6 +61,7 @@ public class AuthCommand {
             return;
         }
         authManager.getAuthDao().create(new AuthModel(uuid.get().toString(), AuthStatus.Friend, redditUsername.getRedditUsername()));
+        sender.sendMessage(ChatColor.GREEN + "Your friend has successfully been added");
     }
 
     @SubCommand(format = "classicRoyal {mcUsername} {redditUsername}")
@@ -69,5 +73,6 @@ public class AuthCommand {
             return;
         }
         authManager.getAuthDao().create(new AuthModel(uuid.get().toString(), AuthStatus.ClassicRoyal, redditUsername));
+        sender.sendMessage(ChatColor.GREEN + "Your friend has successfully been added");
     }
 }

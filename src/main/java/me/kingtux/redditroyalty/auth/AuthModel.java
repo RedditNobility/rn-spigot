@@ -20,6 +20,10 @@ public class AuthModel extends BasicLoggingObject {
         this.redditUsername = redditUsername;
     }
 
+    public AuthModel() {
+
+    }
+
     public String getMcUser() {
         return mcUser;
     }

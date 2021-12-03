@@ -1,6 +1,7 @@
 package me.kingtux.redditroyalty.auth;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import okhttp3.*;
 import okhttp3.OkHttpClient.Builder;
@@ -11,10 +12,10 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class RedditNobilityClient {
-    private final OkHttpClient client;
+    private OkHttpClient client;
     private AuthToken authToken;
     private Gson gson = new Gson();
-    private final String userAgent = "Reddit Nobility MC Server";
+    private String userAgent = "Reddit Nobility MC Server";
     private String username;
     private String password;
 
@@ -27,8 +28,11 @@ public class RedditNobilityClient {
     }
 
     private void loadToken() {
+        JsonObject object = new JsonObject();
+        object.addProperty("username", username);
+        object.addProperty("password", password);
         Request request = new Request.Builder()
-                .url("https://redditnobility.org/api/login/password").header("User-Agent", userAgent).post(RequestBody.create(gson.toJson(new LoginRequest(username, password)), MediaType.get("application/json; charset=utf-8”")))
+                .url("https://redditnobility.org/api/login/password").header("User-Agent", userAgent).post(RequestBody.create(gson.toJson(object), MediaType.parse("application/json; charset=utf-8")))
                 .build();
         try (Response execute = client.newCall(request).execute()) {
             if (execute.isSuccessful()) {
@@ -37,7 +41,7 @@ public class RedditNobilityClient {
                 if (!response.isSuccess()) {
                     throw new IllegalArgumentException("Invalid Auth Details");
                 }
-                authToken = response.getData().get();
+                authToken = response.getData();
             } else {
                 throw new IllegalArgumentException("Invalid Auth Details");
             }
@@ -48,7 +52,7 @@ public class RedditNobilityClient {
 
     public boolean isValid(String username) {
         Request request = new Request.Builder()
-                .url("https://redditnobility.org/api/login/password").header("User-Agent", userAgent).header("Authorization", "Bearer " + authToken.getToken())
+                .url("https://redditnobility.org/moderator/user/"+username).header("User-Agent", userAgent).header("Authorization", "Bearer " + authToken.getToken())
                 .build();
         try (Response execute = client.newCall(request).execute()) {
             if (execute.isSuccessful()) {
@@ -76,13 +80,13 @@ public class RedditNobilityClient {
 
 class BasicResponse<T> {
     private boolean success;
-    private Optional<T> data;
+    private T data;
 
     public boolean isSuccess() {
         return success;
     }
 
-    public Optional<T> getData() {
+    public T getData() {
         return data;
     }
 }
