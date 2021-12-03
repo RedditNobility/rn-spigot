@@ -15,9 +15,18 @@ public class RedditNobilityClient {
     private AuthToken authToken;
     private Gson gson = new Gson();
     private final String userAgent = "Reddit Nobility MC Server";
+    private String username;
+    private String password;
 
     public RedditNobilityClient(String username, String password) throws IllegalArgumentException {
         client = new OkHttpClient();
+
+        this.username = username;
+        this.password = password;
+        loadToken();
+    }
+
+    private void loadToken() {
         Request request = new Request.Builder()
                 .url("https://redditnobility.org/api/login/password").header("User-Agent", userAgent).post(RequestBody.create(gson.toJson(new LoginRequest(username, password)), MediaType.get("application/json; charset=utf-8”")))
                 .build();
@@ -52,6 +61,10 @@ public class RedditNobilityClient {
             } else {
                 if (execute.code() == 404) {
                     return false;
+                } else if (execute.code() == 401) {
+                    loadToken();
+                    // Stackoverflow go brrrrrrr
+                    isValid(username);
                 }
                 throw new IllegalArgumentException("Bad Request: " + execute.code());
             }

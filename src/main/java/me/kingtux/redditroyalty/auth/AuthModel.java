@@ -14,4 +14,21 @@ public class AuthModel extends BasicLoggingObject {
     @TableColumn
     private String redditUsername;
 
+    public AuthModel(String mcUser, AuthStatus status, String redditUsername) {
+        this.mcUser = mcUser;
+        this.status = status;
+        this.redditUsername = redditUsername;
+    }
+
+    public String getMcUser() {
+        return mcUser;
+    }
+
+    public AuthStatus getStatus() {
+        return status;
+    }
+
+    public String getRedditUsername() {
+        return redditUsername;
+    }
 }
