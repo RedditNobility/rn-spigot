@@ -151,7 +151,7 @@
         <dependency>
             <groupId>com.jcabi</groupId>
             <artifactId>jcabi-log</artifactId>
-            <version>0.17.3</version>
+            <version>0.20.1</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
