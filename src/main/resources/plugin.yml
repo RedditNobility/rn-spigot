@@ -1,6 +1,6 @@
 name: RedditNobility
 version: ${project.version}
-main: me.kingtux.redditnobility.RedditNoblity
+main: me.kingtux.redditnobility.RedditNobility
 api-version: 1.13
 authors: [ KingTux ]
 description: The Reddit Nobility Core plugin
