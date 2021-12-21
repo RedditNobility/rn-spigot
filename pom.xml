@@ -9,11 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Reddit Royalty</name>
+    <name>Reddit Nobility</name>
 
-    <description>The Reddit Royalty Core plugin</description>
+    <description>The Reddit Nobility Core plugin</description>
     <properties>
-        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <url>kingtux.me</url>
@@ -74,8 +73,9 @@
             <url>https://repo.kingtux.me/storages/maven/kingtux-repo</url>
         </repository>
         <repository>
-            <id>tuxserver</id>
-            <url>https://repo.kingtux.me/storages/maven/tuxserver</url>
+            <id>purpur-repo-snapshots</id>
+            <name>PurpurMC Repo</name>
+            <url>https://repo.purpurmc.org/snapshots</url>
         </repository>
         <repository>
             <id>tuxjsql</id>
@@ -86,12 +86,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.kingtux.tuxserver</groupId>
-            <artifactId>tuxserver</artifactId>
-            <version>1.17.1-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+            <groupId>org.purpurmc.purpur</groupId>
+            <artifactId>purpur-api</artifactId>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
         </dependency>
-
 
         <dependency>
             <groupId>dev.nitrocommand</groupId>

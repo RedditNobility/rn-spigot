@@ -1,10 +1,11 @@
-package me.kingtux.redditroyalty;
+package me.kingtux.redditnobility;
 
 import dev.nitrocommand.bukkit.BukkitCommandCore;
-import me.kingtux.redditroyalty.auth.AuthCommand;
-import me.kingtux.redditroyalty.auth.AuthManager;
+import me.kingtux.redditnobility.auth.AuthCommand;
+import me.kingtux.redditnobility.auth.AuthManager;
 import me.kingtux.tuxcore.TuxCore;
 import me.kingtux.tuxorm.TOConnection;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.CreatureSpawner;
@@ -13,10 +14,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class RedditRoyalty extends JavaPlugin {
+public final class RedditNobility extends JavaPlugin {
     private BukkitCommandCore bukkitCommandCore;
     private TuxCore tuxCore;
 
@@ -75,7 +75,7 @@ public final class RedditRoyalty extends JavaPlugin {
     public static ItemStack createSpawner(EntityType type) {
         ItemStack spawner = new ItemStack(Material.SPAWNER, 1);
         ItemMeta itemMeta = spawner.getItemMeta();
-        itemMeta.setDisplayName(type.getKey().getKey() + " Spawner");
+        itemMeta.displayName(Component.text(type.name() + " Spawner"));
 
         spawner.setItemMeta(itemMeta);
         BlockStateMeta bsm = (BlockStateMeta) spawner.getItemMeta();

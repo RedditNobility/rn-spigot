@@ -1,12 +1,11 @@
-package me.kingtux.redditroyalty.auth;
+package me.kingtux.redditnobility.auth;
 
 import dev.nitrocommand.bukkit.annotations.BukkitPermission;
 import dev.nitrocommand.core.annotations.BaseCommand;
 import dev.nitrocommand.core.annotations.CommandArgument;
 import dev.nitrocommand.core.annotations.NitroCommand;
 import dev.nitrocommand.core.annotations.SubCommand;
-import me.kingtux.redditroyalty.RedditRoyalty;
-import me.kingtux.tuxcore.TuxCore;
+import me.kingtux.redditnobility.RedditNobility;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -16,11 +15,11 @@ import java.util.UUID;
 
 @NitroCommand(command = "auth", description = "Auth Tool For RedditNobility ", format = "/auth login {RedditUsername}")
 public class AuthCommand {
-    private RedditRoyalty redditRoyalty;
+    private RedditNobility redditNobility;
     private AuthManager authManager;
 
-    public AuthCommand(RedditRoyalty redditRoyalty, AuthManager authManager) {
-        this.redditRoyalty = redditRoyalty;
+    public AuthCommand(RedditNobility redditNobility, AuthManager authManager) {
+        this.redditNobility = redditNobility;
         this.authManager = authManager;
     }
 

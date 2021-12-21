@@ -1,11 +1,9 @@
-package me.kingtux.redditroyalty.auth;
+package me.kingtux.redditnobility.auth;
 
-import me.kingtux.redditroyalty.RedditRoyalty;
+import me.kingtux.redditnobility.RedditNobility;
 import me.kingtux.tuxorm.Dao;
-import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -13,14 +11,14 @@ import java.util.*;
 
 public class AuthManager implements Listener {
     private List<UUID> validUsers = new ArrayList<>();
-    private RedditRoyalty redditRoyalty;
+    private RedditNobility redditNobility;
     private Dao<AuthModel, Long> authDao;
     protected RedditNobilityClient nobilityClient;
 
-    public AuthManager(RedditRoyalty redditRoyalty) {
-        this.redditRoyalty = redditRoyalty;
-        nobilityClient = new RedditNobilityClient(redditRoyalty.getConfig().getString("site.username"), redditRoyalty.getConfig().getString("site.password"));
-        authDao = redditRoyalty.getConnection().createDao(AuthModel.class);
+    public AuthManager(RedditNobility redditNobility) {
+        this.redditNobility = redditNobility;
+        nobilityClient = new RedditNobilityClient(redditNobility.getConfig().getString("site.username"), redditNobility.getConfig().getString("site.password"));
+        authDao = redditNobility.getConnection().createDao(AuthModel.class);
     }
 
     @EventHandler
@@ -58,8 +56,8 @@ public class AuthManager implements Listener {
         return validUsers;
     }
 
-    public RedditRoyalty getRedditRoyalty() {
-        return redditRoyalty;
+    public RedditNobility getRedditRoyalty() {
+        return redditNobility;
     }
 
     public Dao<AuthModel, Long> getAuthDao() {

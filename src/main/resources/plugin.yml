@@ -1,9 +1,9 @@
-name: RedditRoyalty
+name: RedditNobility
 version: ${project.version}
-main: me.kingtux.redditroyalty.RedditRoyalty
+main: me.kingtux.redditnobility.RedditNoblity
 api-version: 1.13
-authors: [KingTux]
-description: The Reddit Royalty Core plugin
+authors: [ KingTux ]
+description: The Reddit Nobility Core plugin
 depend:
   - TuxCore
 website: kingtux.me

@@ -1,4 +1,4 @@
-package me.kingtux.redditroyalty;
+package me.kingtux.redditnobility;
 
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;

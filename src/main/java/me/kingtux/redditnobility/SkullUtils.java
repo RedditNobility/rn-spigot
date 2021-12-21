@@ -1,4 +1,4 @@
-package me.kingtux.redditroyalty;
+package me.kingtux.redditnobility;
 
 import com.destroystokyo.paper.profile.PlayerProfile;
 import com.destroystokyo.paper.profile.ProfileProperty;

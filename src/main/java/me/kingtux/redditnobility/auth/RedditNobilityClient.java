@@ -1,15 +1,11 @@
-package me.kingtux.redditroyalty.auth;
+package me.kingtux.redditnobility.auth;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import okhttp3.*;
-import okhttp3.OkHttpClient.Builder;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class RedditNobilityClient {
     private OkHttpClient client;

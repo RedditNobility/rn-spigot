@@ -1,4 +1,4 @@
-package me.kingtux.redditroyalty.auth;
+package me.kingtux.redditnobility.auth;
 
 
 import me.kingtux.tuxorm.BasicLoggingObject;
