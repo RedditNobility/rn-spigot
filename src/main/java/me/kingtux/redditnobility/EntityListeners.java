@@ -22,7 +22,8 @@ public class EntityListeners implements Listener {
 
     @EventHandler
     public void playerDeath(PlayerDeathEvent e) {
-        if ((e.getEntity().getKiller() != null) || (e.getEntity().getKiller().getType() != EntityType.PLAYER)) return;
+        if (e.getEntity().getKiller() == null) return;
+        if (e.getEntity().getKiller().getType() != EntityType.PLAYER) return;
         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) itemStack.getItemMeta();
         meta.setPlayerProfile(Bukkit.createProfile(e.getEntity().getUniqueId()));
