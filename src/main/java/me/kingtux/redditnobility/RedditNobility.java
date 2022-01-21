@@ -24,11 +24,15 @@ public final class RedditNobility extends JavaPlugin {
     public void onEnable() {
 
         saveDefaultConfig();
+        InfiniteLight infiniteLight = new InfiniteLight(this);
+
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new BlockListeners(this), this);
         getServer().getPluginManager().registerEvents(new EntityListeners(), this);
+        getServer().getPluginManager().registerEvents(infiniteLight, this);
         loadSpawners();
         bukkitCommandCore = new BukkitCommandCore(this);
+        bukkitCommandCore.registerCommand(infiniteLight);
         tuxCore = (TuxCore) getServer().getPluginManager().getPlugin("TuxCore");
         if (getConfig().getBoolean("require-auth", true)) {
             var auth = new AuthManager(this);
